@@ -13,7 +13,7 @@ RUN dotnet restore "UrbanLvivProjectAPI/UrbanLvivProjectAPI.csproj"
 COPY . .
 
 WORKDIR "/src/UrbanLvivProjectAPI"
-RUN dotnet build "UrbanLvivProjectAPI.csproj" -c Release -o /app/build
+RUN dotnet build "UrbanLvivProjectAPI/UrbanLvivProjectAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "UrbanLvivProjectAPI.csproj" -c Release -o /app/publish
