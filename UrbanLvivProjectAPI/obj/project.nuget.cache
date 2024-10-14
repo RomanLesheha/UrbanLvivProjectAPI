@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "uAc8S/SeOnycMQpNae81ZzXVY3so+fnQDZMkqxTKDO6E2DVz4H0dLeIFizk1pfxkGv6NBKqmQ6D8S7x6KdtLnA==",
+  "dgSpecHash": "eypZzSpvI6i6Tpp6EMusIWfm+eQW8x8rP9p7wqqsp8dPsi4Aqr1+FdkS6wTA4QiIYnyH58JRZNJKyuemTp1gGQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\roman\\RiderProjects\\UrbanLvivProjectAPI\\UrbanLvivProjectAPI\\UrbanLvivProjectAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\roman\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\roman\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\roman\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.4\\microsoft.visualstudio.azure.containers.tools.targets.1.19.4.nupkg.sha512",
     "C:\\Users\\roman\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\roman\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\roman\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
