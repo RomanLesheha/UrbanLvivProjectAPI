@@ -6,8 +6,8 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["UrbanLvivProjectAPI/UrbanLvivProjectAPI.csproj", "UrbanLvivProjectAPI/"]
-RUN dotnet restore "UrbanLvivProjectAPI/UrbanLvivProjectAPI.csproj"
+COPY ["UrbanLvivProjectAPI.csproj", "UrbanLvivProjectAPI/"]
+RUN dotnet restore "UrbanLvivProjectAPI.csproj"
 COPY . .
 WORKDIR "/src/UrbanLvivProjectAPI"
 RUN dotnet build "UrbanLvivProjectAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
