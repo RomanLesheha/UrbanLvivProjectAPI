@@ -1,5 +1,4 @@
-using EduRateApi.Implementation;
-using EduRateApi.Interfaces;
+
 using FirebaseAdmin;
 using UrbanLvivProjectAPI.Interfaces;
 using UrbanLvivProjectAPI.Services;
@@ -7,11 +6,20 @@ using UrbanLvivProjectAPI.Services;
 var policy = "MyPolicy";
 var builder = WebApplication.CreateBuilder(args);
 
+IWebHostEnvironment env = builder.Environment;
+string environment = Environment.GetEnvironmentVariable("enviroment") ?? "Development";
+
+builder.Configuration
+    .SetBasePath(env.ContentRootPath)
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{environment}.json", optional: true)
+    .AddEnvironmentVariables();
+
 builder.Services.AddScoped<IFirebaseConnectingService, FirebaseConnectingService>();
-// Add services to the container.
-builder.Services.AddScoped<IShopService, ShopService>();
+builder.Services.AddScoped<IReportService, ReportService>();
+
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
@@ -24,7 +32,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
