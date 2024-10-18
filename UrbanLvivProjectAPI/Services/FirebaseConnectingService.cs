@@ -1,26 +1,26 @@
 using FireSharp;
 using FireSharp.Config;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using UrbanLvivProjectAPI.Interfaces;
 
 namespace UrbanLvivProjectAPI.Services;
 
 public class FirebaseConnectingService : IFirebaseConnectingService
 {
-    public string GetApiKey()
+    private readonly IConfiguration _configuration;
+    
+    public FirebaseConnectingService(IConfiguration configuration)
     {
-        string configFile = "Configs/firebaseConfig.json";
-        string configJson = File.ReadAllText(configFile);
-        var config = JObject.Parse(configJson);
-        return config["API_KEY"].ToString();
+        _configuration = configuration;
     }
 
     public FirebaseClient GetFirebaseClient()
     {
-        var firebaseConfigPath = "Configs/firebaseConfig.json";
-        var configJson = System.IO.File.ReadAllText(firebaseConfigPath);
-        var config = JsonConvert.DeserializeObject<FirebaseConfig>(configJson);
+        var firebaseSection = _configuration.GetSection("Firebase");
+        var config = new FirebaseConfig
+        {
+            AuthSecret = firebaseSection["AuthSecret"],
+            BasePath = firebaseSection["BasePath"]
+        };
 
         return new FireSharp.FirebaseClient(config);
     }
