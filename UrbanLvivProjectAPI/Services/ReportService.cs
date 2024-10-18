@@ -74,19 +74,6 @@ public class ReportService : IReportService
                 if (response.Body != "null")
                 {
                     var reports = response.ResultAs<Dictionary<string, ReportDetails>>();
-
-                    foreach (var report in reports.Values)
-                    {
-                        if (int.TryParse(report.typeOfProblem, out int problemTypeValue))
-                        {
-                            report.typeOfProblem = Enum.GetName(typeof(ProblemType), problemTypeValue);
-                        }
-                        else
-                        {
-                            report.typeOfProblem = "Unknown"; 
-                        }
-                    }
-
                     return reports.Values.ToList();
                 }
                 else
