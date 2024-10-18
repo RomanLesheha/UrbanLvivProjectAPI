@@ -16,14 +16,14 @@ public class ReportController : Controller
         _reportService = reportService;
     }
 
-    [HttpGet]
+    [HttpGet("GetAllReports")]
     public async Task<IActionResult> GetAllReports()
     {
         List<ReportDetails> result = await _reportService.GetAllReports();
         return Ok(JsonConvert.SerializeObject(result));
     }
     
-    [HttpPost]
+    [HttpPost("CreateReport")]
     public async Task<IActionResult> CreateReport(ReportCreate report)
     {
         ServerResponse result = await _reportService.CreateReport(report);
