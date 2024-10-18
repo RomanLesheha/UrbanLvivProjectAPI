@@ -21,7 +21,8 @@ public class ReportService : IReportService
         {
             if (client != null)
             {
-                string reportId = Guid.NewGuid().ToString();
+                Random rand = new Random();
+                int reportId = rand.Next(10000000, 99999999);
                 
                 var report = new Report
                 {

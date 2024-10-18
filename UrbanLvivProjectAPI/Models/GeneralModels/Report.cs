@@ -2,7 +2,7 @@ namespace UrbanLvivProjectAPI.Models.GeneralModels;
 
 public class Report
 {
-    public string Id { get; set; }
+    public int Id { get; set; }
     /// <summary>
     /// The title of the report describing the problem.
     /// </summary>
