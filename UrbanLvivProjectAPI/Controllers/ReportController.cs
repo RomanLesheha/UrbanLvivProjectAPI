@@ -23,10 +23,38 @@ public class ReportController : Controller
         return Ok(JsonConvert.SerializeObject(result));
     }
     
+    [HttpGet("GetAllActiveReports")]
+    public async Task<IActionResult> GetAllActiveReports()
+    {
+        List<ReportDetails> result = await _reportService.GetAllActiveReports();
+        return Ok(JsonConvert.SerializeObject(result));
+    }
+    
+    [HttpGet("GetUserReports/{userId}")]
+    public async Task<IActionResult> GetUserReports(int userId)
+    {
+        List<ReportDetails> result = await _reportService.GetUserReports(userId);
+        return Ok(JsonConvert.SerializeObject(result));
+    }
+    
     [HttpPost("CreateReport")]
     public async Task<IActionResult> CreateReport(ReportCreate report)
     {
         ServerResponse result = await _reportService.CreateReport(report);
+        return Ok(JsonConvert.SerializeObject(result));
+    }
+    
+    [HttpPost("UpdateReportByUser/{reportId}")]
+    public async Task<IActionResult> UpdateReportByUser(int reportId , ReportUpdate report)
+    {
+        ServerResponse result = await _reportService.UpdateReportByUser(reportId , report);
+        return Ok(JsonConvert.SerializeObject(result));
+    }
+    
+    [HttpPost("CancelReport/{reportId}")]
+    public async Task<IActionResult> CancelReportByUser(int reportId)
+    {
+        ServerResponse result = await _reportService.CancelReportByUser(reportId);
         return Ok(JsonConvert.SerializeObject(result));
     }
 }
