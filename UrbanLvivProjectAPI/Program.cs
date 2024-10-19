@@ -17,6 +17,7 @@ builder.Configuration
 
 builder.Services.AddScoped<IFirebaseConnectingService, FirebaseConnectingService>();
 builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 
 builder.Services.AddControllers();
