@@ -69,7 +69,7 @@ public class AuthService : IAuthService
 
    public async Task<ServerResponse> UserRegister(UserRegister user)
     {
-        if (string.IsNullOrEmpty(user.firstName) || 
+        /*if (string.IsNullOrEmpty(user.firstName) || 
             string.IsNullOrEmpty(user.lastName) || 
             string.IsNullOrEmpty(user.email) || 
             string.IsNullOrEmpty(user.phone) || 
@@ -86,7 +86,7 @@ public class AuthService : IAuthService
         if (user.password.Length < 8)
         {
             return new ServerResponse("Password must be at least 8 characters long.", 400);
-        }
+        }*/
 
         using (var client = _firebaseConnectingService.GetFirebaseClient())
         {
